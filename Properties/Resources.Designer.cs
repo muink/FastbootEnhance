@@ -610,6 +610,15 @@ namespace FastbootEnhance.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Cancelled 的本地化字符串。
+        /// </summary>
+        public static string fastboot_update_status_cancelled {
+            get {
+                return ResourceManager.GetString("fastboot_update_status_cancelled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Merging 的本地化字符串。
         /// </summary>
         public static string fastboot_update_status_merging {
@@ -633,6 +642,15 @@ namespace FastbootEnhance.Properties {
         public static string fastboot_update_status_snapshotted {
             get {
                 return ResourceManager.GetString("fastboot_update_status_snapshotted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Unknown 的本地化字符串。
+        /// </summary>
+        public static string fastboot_update_status_unknown {
+            get {
+                return ResourceManager.GetString("fastboot_update_status_unknown", resourceCulture);
             }
         }
         
