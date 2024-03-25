@@ -82,7 +82,14 @@ namespace FastbootEnhance
 
                 if (line[1] == "current-slot")
                 {
-                    current_slot = line[2];
+                    try
+                    {
+                        current_slot = line[2];
+                    }
+                    catch (Exception)
+                    {
+                        current_slot = null;
+                    }
                     continue;
                 }
 
