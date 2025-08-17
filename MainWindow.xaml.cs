@@ -73,7 +73,7 @@ namespace FastbootEnhance
 
         private void OSS_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/libxzr/FastbootEnhance");
+            Process.Start("https://github.com/muink/FastbootEnhance");
         }
     }
 }
