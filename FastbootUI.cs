@@ -259,8 +259,13 @@ namespace FastbootEnhance
                         MainWindow.THIS.fastboot_ab_switch.Visibility = Visibility.Hidden;
                     }
 
-                    //检测是否应出现"去除更新状态"按钮
-                    if (fastbootData.snapshot_update_status == "none")
+                    //检测是否应出现"清除更新状态"按钮
+                    if (fastbootData.snapshot_update_status == "snapshotted"
+					 || fastbootData.snapshot_update_status == "merging")
+                    {
+                        MainWindow.THIS.fastboot_cancel_update.Visibility = Visibility.Visible;
+                    }
+                    else
                     {
                         MainWindow.THIS.fastboot_cancel_update.Visibility = Visibility.Hidden;
                     }
@@ -523,7 +528,7 @@ namespace FastbootEnhance
                 }
             };
 
-            //监听"去除更新状态"按钮
+            //监听"清除更新状态"按钮
             MainWindow.THIS.fastboot_cancel_update.Click += delegate
             {
                 if (!checkCurDevExist())
@@ -672,6 +677,7 @@ namespace FastbootEnhance
                     }).ShowDialog();
             };
 
+            //监听"Flash Payload.bin"按钮
             MainWindow.THIS.fastboot_flash_payload.Click += delegate
             {
                 if (!checkCurDevExist())

@@ -133,7 +133,7 @@ namespace FastbootEnhance.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Cancel pending update 的本地化字符串。
+        ///   查找类似 Cancel in-progres update 的本地化字符串。
         /// </summary>
         public static string fastboot_cancel_update {
             get {
@@ -151,7 +151,7 @@ namespace FastbootEnhance.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Virtual A/B temporary partitions exist 的本地化字符串。
+        ///   查找类似 Virtual A/B snapshot partitions exist 的本地化字符串。
         /// </summary>
         public static string fastboot_cow_exist_str0 {
             get {
@@ -160,7 +160,7 @@ namespace FastbootEnhance.Properties {
         }
         
         /// <summary>
-        ///   查找类似 The temporary partitions created during the Virtual A/B system update exist in the device, forcing it to continue may cause the flashing to fail due to insufficient space in the super partition, and thus brick the device. 的本地化字符串。
+        ///   查找类似 The snapshot partitions created during the Virtual A/B system update exist in the device, forcing it to continue may cause the flashing to fail due to insufficient space in the super partition, and thus brick the device. 的本地化字符串。
         /// </summary>
         public static string fastboot_cow_exist_str1 {
             get {
@@ -169,7 +169,7 @@ namespace FastbootEnhance.Properties {
         }
         
         /// <summary>
-        ///   查找类似 ( You can manually delete the temporary partitions ending in &quot;cow&quot; to resolve this warning if the Virtual A/B update is not in progress ) 的本地化字符串。
+        ///   查找类似 ( You can manually delete the snapshot partitions ending in &quot;cow&quot; to resolve this warning if the Virtual A/B update is not in progress ) 的本地化字符串。
         /// </summary>
         public static string fastboot_cow_exist_str2 {
             get {
