@@ -259,6 +259,8 @@ namespace FastbootEnhance
                         MainWindow.THIS.fastboot_ab_switch.Visibility = Visibility.Hidden;
                     }
 
+                    // https://source.android.com/docs/core/ota/virtual_ab/implement#fastboot-tooling-changes
+
                     //检测是否应出现"Flash Payload.bin"按钮
                     if (fastbootData.snapshot_update_status == "none")
                     {
@@ -558,8 +560,6 @@ namespace FastbootEnhance
 
                 new Thread(new ParameterizedThreadStart(step_cmd_runner_err))
                 .Start(new StepCmdRunnerParam("snapshot-update cancel", 2, true));
-                new Thread(new ParameterizedThreadStart(step_cmd_runner_err))
-                .Start(new StepCmdRunnerParam("set_active other", 2, false));
             };
 
             //监听"完成更新"按钮
@@ -568,8 +568,15 @@ namespace FastbootEnhance
                 if (!checkCurDevExist())
                     return;
 
-                new Thread(new ParameterizedThreadStart(step_cmd_runner_err))
-                .Start(new StepCmdRunnerParam("snapshot-update merge", 2, true));
+                if (fastbootData.fastbootd)
+                {
+                    new Thread(new ParameterizedThreadStart(step_cmd_runner_err))
+                    .Start(new StepCmdRunnerParam("snapshot-update merge", 2, true));
+                }
+                else
+                {
+                    MessageBox.Show("Can only be executed in fastbootd");
+                }
             };
 
             MainWindow.THIS.fastboot_flash.Click += delegate
