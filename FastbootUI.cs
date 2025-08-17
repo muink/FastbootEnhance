@@ -534,8 +534,15 @@ namespace FastbootEnhance
 
                 if (fastbootData.current_slot != null)
                 {
-                    new Thread(new ParameterizedThreadStart(step_cmd_runner_err))
-                .Start(new StepCmdRunnerParam("set_active other", 2, false));
+                    if (fastbootData.snapshot_update_status != "merging")
+                    {
+                        new Thread(new ParameterizedThreadStart(step_cmd_runner_err))
+                    .Start(new StepCmdRunnerParam("set_active other", 2, false));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cannot switch slot in state: " + Properties.Resources.fastboot_update_status_merging);
+                    }
                 }
                 else
                 {
