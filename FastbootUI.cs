@@ -222,17 +222,11 @@ namespace FastbootEnhance
                         case "none":
                             vab_status_str = Properties.Resources.fastboot_update_status_none;
                             break;
-                        case "unknown":
-                            vab_status_str = Properties.Resources.fastboot_update_status_unknown;
-                            break;
                         case "snapshotted":
                             vab_status_str = Properties.Resources.fastboot_update_status_snapshotted;
                             break;
                         case "merging":
                             vab_status_str = Properties.Resources.fastboot_update_status_merging;
-                            break;
-                        case "cancelled":
-                            vab_status_str = Properties.Resources.fastboot_update_status_cancelled;
                             break;
                         default:
                             vab_status_str = fastbootData.snapshot_update_status;
@@ -266,9 +260,7 @@ namespace FastbootEnhance
                     }
 
                     //检测是否应出现"Flash Payload.bin"按钮
-                    if (fastbootData.snapshot_update_status == "none"
-                     || fastbootData.snapshot_update_status == "unknown"
-                     || fastbootData.snapshot_update_status == "cancelled")
+                    if (fastbootData.snapshot_update_status == "none")
                     {
                         MainWindow.THIS.fastboot_flash_payload.Visibility = Visibility.Visible;
                     }
