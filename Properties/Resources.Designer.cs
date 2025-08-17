@@ -268,6 +268,15 @@ namespace FastbootEnhance.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Switch slot 的本地化字符串。
+        /// </summary>
+        public static string fastboot_ab_switch {
+            get {
+                return ResourceManager.GetString("fastboot_ab_switch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Flash Payload.bin 的本地化字符串。
         /// </summary>
         public static string fastboot_flash_payload {

@@ -183,6 +183,9 @@
   <data name="fastboot_filter_by_partition_name" xml:space="preserve">
     <value>根據分區名篩選：</value>
   </data>
+  <data name="fastboot_ab_switch" xml:space="preserve">
+    <value>切換插槽</value>
+  </data>
   <data name="fastboot_flash_payload" xml:space="preserve">
     <value>燒写 Payload.bin</value>
   </data>

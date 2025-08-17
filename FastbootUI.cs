@@ -532,15 +532,10 @@ namespace FastbootEnhance
                 if (!checkCurDevExist())
                     return;
 
-                if (fastbootData.current_slot == "a")
+                if (fastbootData.current_slot != null)
                 {
                     new Thread(new ParameterizedThreadStart(step_cmd_runner_err))
-                .Start(new StepCmdRunnerParam("set_active b", 2, false));
-                }
-                else if (fastbootData.current_slot == "b")
-                {
-                    new Thread(new ParameterizedThreadStart(step_cmd_runner_err))
-                .Start(new StepCmdRunnerParam("set_active a", 2, false));
+                .Start(new StepCmdRunnerParam("set_active other", 2, false));
                 }
                 else
                 {
