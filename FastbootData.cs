@@ -50,7 +50,7 @@ namespace FastbootEnhance
                 {
                     try
                     {
-                        partition_size.Add(line[2], Convert.ToInt64(line[3], line[3].Contains("0x") ? 16 : 10));
+                        partition_size[line[2]] = Convert.ToInt64(line[3], line[3].Contains("0x") ? 16 : 10);
                     }
                     catch (Exception)
                     {
@@ -63,7 +63,7 @@ namespace FastbootEnhance
                 {
                     try
                     {
-                        partition_type.Add(line[2], line[3]);
+                        partition_type[line[2]] = line[3];
                     }
                     catch (Exception)
                     {
@@ -93,7 +93,7 @@ namespace FastbootEnhance
                 {
                     try
                     {
-                        partition_is_logical.Add(line[2], line[3] == "yes");
+                        partition_is_logical[line[2]] = line[3] == "yes";
                     }
                     catch (Exception)
                     {

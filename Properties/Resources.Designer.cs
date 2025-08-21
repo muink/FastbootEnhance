@@ -124,6 +124,15 @@ namespace FastbootEnhance.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Switch slot 的本地化字符串。
+        /// </summary>
+        public static string fastboot_ab_switch {
+            get {
+                return ResourceManager.GetString("fastboot_ab_switch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Basic Properties 的本地化字符串。
         /// </summary>
         public static string fastboot_basic_prop {
@@ -268,15 +277,6 @@ namespace FastbootEnhance.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Switch slot 的本地化字符串。
-        /// </summary>
-        public static string fastboot_ab_switch {
-            get {
-                return ResourceManager.GetString("fastboot_ab_switch", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 Flash Payload.bin 的本地化字符串。
         /// </summary>
         public static string fastboot_flash_payload {
@@ -302,14 +302,12 @@ namespace FastbootEnhance.Properties {
                 return ResourceManager.GetString("fastboot_is_userspace", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   查找类似 Finish in-progres update 的本地化字符串。
         /// </summary>
-        public static string fastboot_merge_update
-        {
-            get
-            {
+        public static string fastboot_merge_update {
+            get {
                 return ResourceManager.GetString("fastboot_merge_update", resourceCulture);
             }
         }

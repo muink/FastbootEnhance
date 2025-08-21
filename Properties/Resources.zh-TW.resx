@@ -163,7 +163,7 @@
     <value>當前選擇的設備：</value>
   </data>
   <data name="fastboot_current_slot" xml:space="preserve">
-    <value>當前分區</value>
+    <value>當前插槽</value>
   </data>
   <data name="fastboot_device" xml:space="preserve">
     <value>設備</value>
@@ -277,7 +277,7 @@
     <value>斷開連接</value>
   </data>
   <data name="fastboot_seamless_update" xml:space="preserve">
-    <value>無縫更新 (A/B 分區)</value>
+    <value>無縫更新 (A/B 插槽)</value>
   </data>
   <data name="fastboot_secure_boot" xml:space="preserve">
     <value>安全啟動</value>
