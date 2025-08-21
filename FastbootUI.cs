@@ -135,11 +135,15 @@ namespace FastbootEnhance
         {
             public string name { get; }
             public string size { get; }
+            public string type { get; }
+            public string has_slot { get; }
             public string is_logical { get; }
-            public fastboot_partition_row(string name, string size, string is_logical)
+            public fastboot_partition_row(string name, string size, string type, string has_slot, string is_logical)
             {
                 this.name = name;
                 this.size = size;
+                this.type = type;
+                this.has_slot = has_slot;
                 this.is_logical = is_logical;
             }
         }
@@ -190,12 +194,26 @@ namespace FastbootEnhance
 
                     foreach (string key in fastbootData.partition_size.Keys)
                     {
+                        // size_str
                         long raw_size = fastbootData.partition_size[key];
                         string size_str = raw_size >= 0 ? Helper.byte2AUnit((ulong)raw_size) : Properties.Resources.fastboot_0_size;
+
+                        // type_str
+                        string raw_type = null;
+                        fastbootData.partition_type.TryGetValue(key, out raw_type);
+                        string type_str = raw_type == null ? "N/A" : raw_type;
+
+                        // slot_str
+                        bool? raw_slot = null;
+                        fastbootData.partition_has_slot.TryGetValue(key, out raw_slot);
+                        string slot_str = raw_slot == null ? "N/A" : raw_slot == true ? Properties.Resources.yes : Properties.Resources.no;
+
+                        // logical_str
                         bool? raw_logical = null;
                         fastbootData.partition_is_logical.TryGetValue(key, out raw_logical);
-                        string logical_str = raw_logical != null && raw_logical == true ? Properties.Resources.yes : Properties.Resources.no;
-                        listHelper.addItem(new fastboot_partition_row(key, size_str, logical_str));
+                        string logical_str = raw_logical == null ? "N/A" : raw_logical == true ? Properties.Resources.yes : Properties.Resources.no;
+
+                        listHelper.addItem(new fastboot_partition_row(key, size_str, type_str, slot_str, logical_str));
                     }
                     listHelper.render();
 
@@ -208,6 +226,10 @@ namespace FastbootEnhance
 
                     MainWindow.THIS.fastboot_info_list.Items.Add(new fastboot_info_row(Properties.Resources.fastboot_seamless_update,
                         fastbootData.current_slot != null ? Properties.Resources.yes : Properties.Resources.no));
+
+                    if (fastbootData.slot_count > 0)
+                        MainWindow.THIS.fastboot_info_list.Items.Add(new fastboot_info_row(Properties.Resources.fastboot_slot_count,
+                            fastbootData.slot_count.ToString()));
 
                     if (fastbootData.current_slot != null)
                         MainWindow.THIS.fastboot_info_list.Items.Add(new fastboot_info_row(Properties.Resources.fastboot_current_slot,

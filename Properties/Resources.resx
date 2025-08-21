@@ -225,6 +225,9 @@
   <data name="fastboot_partition_action_resize" xml:space="preserve">
     <value>Resize</value>
   </data>
+  <data name="fastboot_partition_has_slot" xml:space="preserve">
+    <value>Has slot</value>
+  </data>
   <data name="fastboot_partition_is_dynamic" xml:space="preserve">
     <value>is Logical</value>
   </data>
@@ -251,6 +254,9 @@
   </data>
   <data name="fastboot_partition_table" xml:space="preserve">
     <value>Partitions</value>
+  </data>
+  <data name="fastboot_partition_type" xml:space="preserve">
+    <value>Type</value>
   </data>
   <data name="fastboot_prop_name" xml:space="preserve">
     <value>Name</value>
@@ -290,6 +296,9 @@
   </data>
   <data name="fastboot_show_logs" xml:space="preserve">
     <value>Show logs</value>
+  </data>
+  <data name="fastboot_slot_count" xml:space="preserve">
+    <value>Slot count</value>
   </data>
   <data name="fastboot_target_partition_not_selected" xml:space="preserve">
     <value>Target partition not yet selected.</value>

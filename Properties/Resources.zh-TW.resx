@@ -222,6 +222,9 @@
   <data name="fastboot_partition_action_resize" xml:space="preserve">
     <value>擴容</value>
   </data>
+  <data name="fastboot_partition_has_slot" xml:space="preserve">
+    <value>多插槽</value>
+  </data>
   <data name="fastboot_partition_is_dynamic" xml:space="preserve">
     <value>動態分區</value>
   </data>
@@ -248,6 +251,9 @@
   </data>
   <data name="fastboot_partition_table" xml:space="preserve">
     <value>分區表</value>
+  </data>
+  <data name="fastboot_partition_type" xml:space="preserve">
+    <value>類型</value>
   </data>
   <data name="fastboot_prop_name" xml:space="preserve">
     <value>屬性名</value>
@@ -287,6 +293,9 @@
   </data>
   <data name="fastboot_show_logs" xml:space="preserve">
     <value>顯示日誌</value>
+  </data>
+  <data name="fastboot_slot_count" xml:space="preserve">
+    <value>插槽計數</value>
   </data>
   <data name="fastboot_target_partition_not_selected" xml:space="preserve">
     <value>尚未選擇目標分區</value>

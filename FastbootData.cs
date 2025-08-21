@@ -8,10 +8,13 @@ namespace FastbootEnhance
         List<List<string>> raw_data;
 
         public Dictionary<string, long> partition_size;
+        public Dictionary<string, string> partition_type;
+        public Dictionary<string, bool?> partition_has_slot;
         public Dictionary<string, bool?> partition_is_logical;
         public string product;
         public bool secure;
         public string current_slot;
+        public short slot_count;
         public bool fastbootd;
         public long max_download_size;
         public string snapshot_update_status;
@@ -20,10 +23,13 @@ namespace FastbootEnhance
         {
             raw_data = new List<List<string>>();
             partition_size = new Dictionary<string, long>();
+            partition_type = new Dictionary<string, string>();
+            partition_has_slot = new Dictionary<string, bool?>();
             partition_is_logical = new Dictionary<string, bool?>();
             product = null;
             secure = false;
             current_slot = null;
+            slot_count = -1;
             fastbootd = false;
             max_download_size = -1;
             snapshot_update_status = null;
@@ -42,15 +48,43 @@ namespace FastbootEnhance
             {
                 if (line[1] == "partition-size")
                 {
-                    string raw_size = line[3];
-                    raw_size = raw_size.Replace("0x", "");
                     try
                     {
-                        partition_size.Add(line[2], Convert.ToInt64(raw_size, 16));
+                        partition_size.Add(line[2], Convert.ToInt64(line[3], line[3].Contains("0x") ? 16 : 10));
                     }
                     catch (Exception)
                     {
                         partition_size[line[2]] = -1;
+                    }
+                    continue;
+                }
+
+                if (line[1] == "partition-type")
+                {
+                    try
+                    {
+                        partition_type.Add(line[2], line[3]);
+                    }
+                    catch (Exception)
+                    {
+                        partition_type[line[2]] = null;
+                    }
+                    continue;
+                }
+
+                if (line[1] == "has-slot")
+                {
+                    try
+                    {
+                        partition_has_slot.Add(line[2], line[3] == "yes");
+                        partition_has_slot.Add(line[2] + "_a", line[3] == "yes");
+                        partition_has_slot.Add(line[2] + "_b", line[3] == "yes");
+                    }
+                    catch (Exception)
+                    {
+                        partition_has_slot[line[2]] = null;
+                        partition_has_slot[line[2] + "_a"] = null;
+                        partition_has_slot[line[2] + "_b"] = null;
                     }
                     continue;
                 }
@@ -93,6 +127,19 @@ namespace FastbootEnhance
                     continue;
                 }
 
+                if (line[1] == "slot-count")
+                {
+                    try
+                    {
+                        slot_count = Convert.ToInt16(line[2], 10);
+                    }
+                    catch (Exception)
+                    {
+                        slot_count = -1;
+                    }
+                    continue;
+                }
+
                 if (line[1] == "is-userspace")
                 {
                     fastbootd = line[2] == "yes";
@@ -101,7 +148,7 @@ namespace FastbootEnhance
 
                 if (line[1] == "max-download-size")
                 {
-                    max_download_size = Convert.ToInt64(line[2], 16);
+                    max_download_size = Convert.ToInt64(line[2], line[2].Contains("0x") ? 16 : 10);
                     continue;
                 }
 

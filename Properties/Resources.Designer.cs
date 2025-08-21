@@ -387,6 +387,15 @@ namespace FastbootEnhance.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Has slot 的本地化字符串。
+        /// </summary>
+        public static string fastboot_partition_has_slot {
+            get {
+                return ResourceManager.GetString("fastboot_partition_has_slot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 is Logical 的本地化字符串。
         /// </summary>
         public static string fastboot_partition_is_dynamic {
@@ -464,6 +473,15 @@ namespace FastbootEnhance.Properties {
         public static string fastboot_partition_table {
             get {
                 return ResourceManager.GetString("fastboot_partition_table", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Type 的本地化字符串。
+        /// </summary>
+        public static string fastboot_partition_type {
+            get {
+                return ResourceManager.GetString("fastboot_partition_type", resourceCulture);
             }
         }
         
@@ -581,6 +599,15 @@ namespace FastbootEnhance.Properties {
         public static string fastboot_show_logs {
             get {
                 return ResourceManager.GetString("fastboot_show_logs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Slot count 的本地化字符串。
+        /// </summary>
+        public static string fastboot_slot_count {
+            get {
+                return ResourceManager.GetString("fastboot_slot_count", resourceCulture);
             }
         }
         

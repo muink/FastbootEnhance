@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:props="clr-namespace:FastbootEnhance.Properties"
         mc:Ignorable="d"
-        Title="{x:Static props:Resources.app_name}" Height="450" Width="650" WindowStartupLocation="CenterScreen">
+        Title="{x:Static props:Resources.app_name}" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Window.TaskbarItemInfo>
         <TaskbarItemInfo x:Name="taskbariteminfo"></TaskbarItemInfo>
     </Window.TaskbarItemInfo>
@@ -70,6 +70,8 @@
                                             <GridView>
                                                 <GridViewColumn Header="{x:Static props:Resources.fastboot_partition_name}" Width="100" DisplayMemberBinding="{Binding name}"/>
                                                 <GridViewColumn Header="{x:Static props:Resources.fastboot_partition_size}" Width="100" DisplayMemberBinding="{Binding size}"/>
+                                                <GridViewColumn Header="{x:Static props:Resources.fastboot_partition_type}" Width="100" DisplayMemberBinding="{Binding type}"/>
+                                                <GridViewColumn Header="{x:Static props:Resources.fastboot_partition_has_slot}" Width="100" DisplayMemberBinding="{Binding has_slot}"/>
                                                 <GridViewColumn Header="{x:Static props:Resources.fastboot_partition_is_dynamic}" Width="100" DisplayMemberBinding="{Binding is_logical}"/>
                                             </GridView>
                                         </ListView.View>
